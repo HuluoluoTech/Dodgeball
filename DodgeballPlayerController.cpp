@@ -20,8 +20,12 @@ void ADodgeballPlayerController::BeginPlay()
 
 void ADodgeballPlayerController::ShowRestartWidget()
 {
+	UE_LOG(LogTemp, Warning, TEXT("ADodgeballPlayerController"));
+
 	if (BP_RestartWidget != nullptr)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("ShowRestartWidget"));
+	
 		SetPause(true);
 		SetInputMode(FInputModeUIOnly());
 		bShowMouseCursor = true;

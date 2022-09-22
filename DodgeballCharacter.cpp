@@ -63,6 +63,9 @@ ADodgeballCharacter::ADodgeballCharacter()
 void ADodgeballCharacter::OnDeath_Implementation()
 {
 	ADodgeballPlayerController* PlayerController = Cast<ADodgeballPlayerController>(GetController());
+
+	UE_LOG(LogTemp, Warning, TEXT("OnDeath_Implementation = %d"), PlayerController == nullptr);
+
 	if (PlayerController != nullptr)
 	{
 		PlayerController->ShowRestartWidget();
