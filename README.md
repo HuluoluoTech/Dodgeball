@@ -132,6 +132,7 @@ GetWorldTimerManager().ClearTimer(ThrowTimerHandle);
 * SetInputMode（）
 * Destroy()
 * UGameplayStatics::GetCurrentLevelName
+* AddDynamic()
 
 ```
 
