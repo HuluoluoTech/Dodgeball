@@ -23,8 +23,10 @@ bool UDodgeballFunctionLibrary::CanSeeActor(const UWorld* World,
 	// The trace channel we want to compare against
 	ECollisionChannel Channel = ECollisionChannel::ECC_GameTraceChannel1;
 
+	// Give more options to line trace.
 	FCollisionQueryParams QueryParams;
 	// Ignore the actors specified
+	// We just want to know enemy and player blocks that channel.
 	QueryParams.AddIgnoredActors(IgnoreActors);
 
 	// Execute the Line Trace

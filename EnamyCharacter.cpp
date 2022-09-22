@@ -104,39 +104,6 @@ bool AEnamyCharacter::LookAtActor(const AActor* TargetActor)
 
 	return false;
 }
-//
-//bool AEnamyCharacter::CanSeeActor(const AActor* TargetActor) const
-//{
-//	if (TargetActor == nullptr) return false;
-//
-//	FHitResult Hit;
-//	FVector CurrentActorLocation = SightSource->GetComponentLocation();
-//	FVector TargetActorLocation = TargetActor->GetActorLocation();
-//
-//	FQuat Rotation = FQuat::Identity;
-//	
-//	 //ECollisionChannel CollisionChannel = ECollisionChannel::ECC_Visibility;
-//	ECollisionChannel CollisionChannel = ECollisionChannel::ECC_GameTraceChannel1;
-//	/*FCollisionShape Shape = FCollisionShape::MakeBox(FVector(20.0f, 20.0f, 20.0f));
-//	GetWorld()->SweepSingleByChannel(Hit, CurrentActorLocation, TargetActorLocation, Rotation, CollisionChannel, Shape);*/
-//
-//	FCollisionQueryParams QueryParams;
-//	QueryParams.AddIgnoredActor(this);
-//	QueryParams.AddIgnoredActor(TargetActor);
-//	GetWorld()->LineTraceSingleByChannel(Hit, CurrentActorLocation, TargetActorLocation, CollisionChannel, QueryParams);
-//
-//	// Show Debug
-//	DrawDebugLine(GetWorld(), CurrentActorLocation, TargetActorLocation, FColor::Red);
-//
-//	/*
-//	Hit.GetActor();
-//	Hit.GetComponent();
-//	Hit.Location;
-//	Hit.Distance
-//	*/;
-//
-//	return !Hit.bBlockingHit;
-//}
 
 void AEnamyCharacter::ThrowDodgeball()
 {
@@ -154,7 +121,8 @@ void AEnamyCharacter::ThrowDodgeball()
 
 	//Spawn new dodgeball
 	//GetWorld()->SpawnActor<ADodgeballProjectile>(DodgeballClass, SpawnLocation, GetActorRotation());
-	ADodgeballProjectile* Projectile = GetWorld()->SpawnActorDeferred<ADodgeballProjectile>(DodgeballClass, SpawnTransform);
+	//ADodgeballProjectile* Projectile = GetWorld()->SpawnActorDeferred<ADodgeballProjectile>(DodgeballClass, SpawnTransform);
+	ADodgeballProjectile* Projectile = GetWorld()->SpawnActorDeferred<ADodgeballProjectile>(ADodgeballProjectile::StaticClass(), SpawnTransform);
 
 	Projectile->GetProjectileMovementComponent()->InitialSpeed = 2200.f;
 	Projectile->FinishSpawning(SpawnTransform);
